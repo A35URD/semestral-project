@@ -34,6 +34,7 @@ async function addProduct() {
 
   const data = await res.json();
   alert(data.success ? 'Product added' : 'Failed to add');
+  loadProducts();
 }
 
 async function loadOrders() {
@@ -61,7 +62,7 @@ async function loadProducts() {
 
     const div = document.createElement('div');
     div.innerHTML = `
-      (${id}) <b>${name}</b> – ${price} Kč
+      ${id} <b>${name}</b> – ${price} Kč
       <button onclick="editProduct('${id}', '${name}', ${price})">Upravit</button>
       <button onclick="deleteProduct('${id}')">Smazat</button>
     `;
