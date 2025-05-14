@@ -54,11 +54,13 @@ async function loadProducts() {
 
   const container = document.getElementById('products');
   container.innerHTML = '';
-  Object.entries(products).forEach(([id, product]) => {
+  
+  products.forEach(product => {
+    const { id, name, price } = product;
     const div = document.createElement('div');
     div.innerHTML = `
-      <b>${product.name}</b> – ${product.price} Kč
-      <button onclick="editProduct('${id}', '${product.name}', ${product.price})">Upravit</button>
+      <b>${name}</b> – ${price} Kč
+      <button onclick="editProduct('${id}', '${name}', ${price})">Upravit</button>
       <button onclick="deleteProduct('${id}')">Smazat</button>
     `;
     container.appendChild(div);
