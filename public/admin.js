@@ -20,13 +20,13 @@ async function loadOrders() {
   container.innerHTML = '';
 
   orders.forEach(order => {
-    const { id, email, items } = order;
+    const { id, address, items } = order;
     const div = document.createElement('div');
     div.className = 'd-flex justify-content-between align-items-center border rounded p-4 mb-1 bg-white shadow-sm';
 
     div.innerHTML = `
         <div id="orderDetail">
-          <div><strong>E-mail: ${email}</strong></div>
+          <div><strong>E-mail: ${address}</strong></div>
           <div><strong>Položky:</strong> ${items.map(i => i.name).join(', ')}</div>
         </div>
         <button onclick="deleteOrder('${id}')" class="btn btn-sm btn-outline-danger">Smazat</button>
