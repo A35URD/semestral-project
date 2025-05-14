@@ -1,26 +1,14 @@
-let loggedIn = false;
+if (localStorage.getItem('isLoggedIn') !== 'true') {
+  window.location.href = 'login.html';
+}
+loadOrders();
+loadProducts();
 
-async function login() {
-  const username = document.getElementById('user').value;
-  const password = document.getElementById('pass').value;
 
-  const res = await fetch('/api/admin/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password })
-  });
 
-  const data = await res.json();
-  if (data.success) {
-    loggedIn = true;
-    document.getElementById('adminPanel').style.display = 'block';
-    document.getElementById('loginPanel').style.display = 'none';
-
-    loadOrders();
-    loadProducts();
-  } else {
-    alert('Login failed');
-  }
+function logout() {
+  sessionStorage.removeItem('isLoggedIn');
+  window.location.href = 'login.html';
 }
 
 async function loadOrders() {
