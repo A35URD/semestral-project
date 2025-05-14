@@ -1,21 +1,49 @@
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-  <meta charset="UTF-8">
-  <title>Online Store</title>
-</head>
-<body>
-  <h1>Product List</h1>
-  <div id="products"></div>
-  <h2>Cart</h2>
-  <div id="cart"></div>
-  <button onclick="checkout()">Order</button>
 
-  <div id="addressForm" style="display:none;">
-    <input id="address" placeholder="Enter your address" />
-    <button onclick="submitOrder()">Submit Order</button>
+<head>
+  <meta charset="UTF-8" />
+  <title>Online Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-light">
+
+  <div class="container py-4">
+
+    <!-- Hlavička s tlačítkem do adminu -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="mb-0">E-shop</h1>
+      <a href="admin.html" class="btn btn-outline-secondary">Admin</a>
+    </div>
+
+    <!-- Produkty -->
+    <div class="mb-5">
+      <h3 class="mb-3">Seznam produktů</h3>
+      <div id="products" class="row row-cols-1 row-cols-md-2 g-4">
+        <!-- Produkty se sem generují dynamicky -->
+      </div>
+    </div>
+
+    <!-- Košík -->
+    <div class="mb-5">
+      <h3 class="mb-3">Košík</h3>
+      <div id="cart" class="mb-3">
+        <!-- Obsah košíku -->
+      </div>
+      <button onclick="checkout()" class="btn btn-primary">Objednat</button>
+    </div>
+
+    <!-- Formulář s adresou -->
+    <div id="addressForm" class="card p-3 shadow-sm mb-4" style="display: none;">
+      <h5 class="mb-3">Zadejte adresu pro doručení</h5>
+      <input id="address" class="form-control mb-3" placeholder="Např. Křižíkova 123, Praha" />
+      <button onclick="submitOrder()" class="btn btn-success">Odeslat objednávku</button>
+    </div>
+
   </div>
 
   <script src="app.js"></script>
 </body>
+
 </html>
