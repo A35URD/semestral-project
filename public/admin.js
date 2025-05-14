@@ -30,7 +30,7 @@ async function loadOrders() {
           <strong>Položky:</strong> ${order.items.map(i => i.name).join(', ')}
         <div>
         <div>
-          <button onclick="deleteOrder('${id}')" class="btn btn-sm btn-outline-danger">Smazat</button>
+          <button onclick="" class="btn btn-sm btn-outline-danger">Smazat</button>
         </div>
       </div>
     `;
