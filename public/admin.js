@@ -28,7 +28,7 @@ async function loadOrders() {
           <div><strong>E-mail: ${order.address}</strong></div>
           <div><strong>Položky:</strong> ${order.items.map(i => i.name).join(', ')}</div>
         </div>
-        <button onclick="" class="btn btn-sm btn-outline-danger">Smazat</button>
+        <button onclick="deleteOrder('${id}')" class="btn btn-sm btn-outline-danger">Smazat</button>
     `;
 
     container.appendChild(div);
@@ -60,6 +60,23 @@ async function loadProducts() {
     `;
     container.appendChild(div);
   });
+}
+
+async function deleteOrder(id) {
+  if (!confirm('Opravdu smazat objednávku?')) return;
+
+  const res = await fetch('/api/admin/delete-order', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id })
+  });
+
+  const data = await res.json();
+  if (!data.success) {
+    alert('Nepodařilo se smazat objednávku.');
+  }
+
+  loadOrders();
 }
 
 async function addProduct() {
