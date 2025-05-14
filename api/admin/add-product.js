@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     const { name, price } = req.body;
 
     const firebaseUrl = process.env.FIREBASE_PROJECT_ID+'/products.json';
-    console.log("Add rodukt url  "+firebaseUrl);
+    console.log("Add produkt url  "+firebaseUrl);
 
     const response = await fetch(firebaseUrl, {
       method: 'POST',
