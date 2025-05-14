@@ -56,8 +56,9 @@ async function loadProducts() {
   container.innerHTML = '';
   
   products.forEach(product => {
-    console.log(id, name, price)
     const { id, name, price } = product;
+    console.log(id, name, price)
+
     const div = document.createElement('div');
     div.innerHTML = `
       <b>${name}</b> – ${price} Kč
