@@ -45,7 +45,7 @@ async function loadProducts() {
   products.forEach(product => {
     const { id, name, price } = product;
     const div = document.createElement('div');
-    div.className="d-flex justify-content-between align-items-center border rounded p-3 bg-white shadow-sm"
+    div.className="d-flex justify-content-between align-items-center card p-4 mb-1 shadow-sm"
     div.innerHTML = `
       <div>
         <strong>${name}</strong><br />
