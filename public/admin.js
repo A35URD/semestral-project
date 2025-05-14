@@ -24,8 +24,8 @@ async function login() {
 }
 
 async function addProduct() {
-  const name = document.getElementById('pname').value;
-  const price = parseFloat(document.getElementById('pprice').value);
+  const name = document.getElementById('addName').value;
+  const price = parseFloat(document.getElementById('addPrice').value);
 
   const res = await fetch('/api/admin/add-product', {
     method: 'POST',
