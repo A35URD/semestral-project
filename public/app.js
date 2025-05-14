@@ -14,9 +14,9 @@ async function loadProducts() {
     card.className = 'card h-100 shadow-sm';
 
     card.innerHTML = `
-      <div class="card-body d-flex flex-column gap-1 justify-content-center">
+      <div class="card-body d-flex flex-column gap-1 justify-content-between">
         <h3 class="card-title">${p.name}</h3>
-        <p class="card-text">${p.price} Kč</p>
+        <p class="badge bg-secondary">${p.price} Kč</p>
         <button class="btn btn-sm btn-primary" onclick='addToCart(${JSON.stringify(p)})'>Přidat do košíku</button>
       </div>
     `;
