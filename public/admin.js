@@ -11,14 +11,27 @@ function logout() {
   window.location.href = 'login.html';
 }
 
+
+
 async function loadOrders() {
   const res = await fetch('/api/admin/orders');
   const orders = await res.json();
   const container = document.getElementById('orders');
   container.innerHTML = '';
+
   orders.forEach(order => {
     const div = document.createElement('div');
-    div.textContent = `Address: ${order.address} | Items: ${order.items.map(i => i.name).join(', ')}`;
+    div.className = 'card mb-3 shadow-sm';
+
+    div.innerHTML = `
+      <div class="card-body">
+        <h3 class="card-title">E-mail: ${order.address}</h3>
+        <p class="card-text mb-0">
+          <strong>Položky:</strong> ${order.items.map(i => i.name).join(', ')}
+        </p>
+      </div>
+    `;
+
     container.appendChild(div);
   });
 }
