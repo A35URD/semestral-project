@@ -45,13 +45,13 @@ async function loadProducts() {
   products.forEach(product => {
     const { id, name, price } = product;
     const div = document.createElement('div');
-    div.className="d-flex justify-content-between align-items-center card p-4 mb-1 shadow-sm"
+    div.className="d-flex justify-content-between align-items-center border rounded p-4 mb-1 bg-white shadow-sm"
     div.innerHTML = `
       <div>
         <strong>${name}</strong><br />
       </div>
       <div class="text-end me-3">
-        ${price} Kč
+        ${price} Kč</span>
       </div>
       <div>
         <button onclick="editProduct('${id}', '${name}', ${price})" class="btn btn-sm btn-outline-primary me-2">Upravit</button>
