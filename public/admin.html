@@ -11,15 +11,18 @@
     <div class="container">
 
       <div id="loginPanel" class="mx-auto text-end" >
+        
+      </div>
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Admin</h1>
         <button onclick="logout()" class="btn btn-outline-dark">Odhlásit</button>
       </div>
 
       <div id="adminPanel" style="display:block;">
         <div id="productsPanel" class="mb-6">
-          <h1>Produkty</h1>
-
+          <h2>Produkty</h2>
           <div id="addForm" class="card p-4 mb-4 shadow" style="display: none;">
-            <h2>Přidat produkt</h2>
+            <h3>Přidat produkt</h3>
             <div class="mb-2">
               <label for="addName" class="form-label">Název</label>
               <input id="addName" class="form-control" placeholder="Název produktu" />
@@ -34,7 +37,7 @@
           </div>
 
           <div id="editForm" class="card p-4 mb-4 shadow" style="display: none;">
-            <h2>Upravit produkt</h2>
+            <h3>Upravit produkt</h3>
             <input type="hidden" id="editId" />
             <div class="mb-2">
               <label for="editName" class="form-label">Název</label>
@@ -49,7 +52,7 @@
             <button onclick="cancelEdit()" class="btn btn-outline-secondary">Zrušit</button>
           </div>
 
-          <h2>Přehled produktů</h2>
+          <h3>Přehled produktů</h3>
           <div id="products">
 
               
@@ -90,7 +93,7 @@
         </div>
 
         <div id="ordersPanel" class="mb-6">
-          <h2>Orders</h2>
+          <h2>Objednávky</h2>
 
           <div id="orders"></div>
         </div>
