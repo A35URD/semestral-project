@@ -57,7 +57,7 @@ async function loadProducts() {
   
   products.forEach(product => {
     const { id, name, price } = product;
-    console.log(id, name, price)
+    console.log("loading product: " + id, name, price)
 
     const div = document.createElement('div');
     div.innerHTML = `

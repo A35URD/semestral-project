@@ -3,12 +3,15 @@ export default async function handler(req, res) {
     const { name, price } = req.body;
 
     const firebaseUrl = process.env.FIREBASE_PROJECT_ID+'/products.json';
-    console.log("Add produkt url  "+firebaseUrl);
+    console.log("Add product url  "+firebaseUrl);
 
     const response = await fetch(firebaseUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, price })
+      body: JSON.stringify({ 
+        id: name, 
+        price 
+      })
     });
 
     if (!response.ok) {
@@ -18,6 +21,8 @@ export default async function handler(req, res) {
     const result = await response.json();
 
     res.status(200).json({ success: true, id: result.name }); // result.name = generated Firebase key
+    console.log("Added product - id: "+result.name)
+
   } catch (err) {
     console.error('Add product error:', err);
     res.status(500).json({ error: 'Failed to add product' });

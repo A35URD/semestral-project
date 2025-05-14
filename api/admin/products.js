@@ -9,9 +9,11 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
-    const result = data
-      ? Object.entries(data).map(([name, price]) => ({ name, ...price }))
-      : [];
+    if (!data) return res.status(200).json([]);
+    const result = Object.entries(data).map(([key, value]) => ({
+      id: key,
+      ...value
+    }));
 
     res.status(200).json(result);
   } catch (err) {
@@ -19,3 +21,4 @@ export default async function handler(req, res) {
     res.status(500).json({ error: 'Failed to load products' });
   }
 }
+
