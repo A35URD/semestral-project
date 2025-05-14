@@ -3,53 +3,67 @@
   <head>
     <meta charset="UTF-8">
     <title>Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="loginPanel">
-      <h1>Admin Login</h1>
-      <input id="user" placeholder="Username" />
-      <input id="pass" type="password" placeholder="Password" />
-      <button onclick="login()">Login</button>
-    </div>
 
-    <div id="adminPanel" style="display:none;">
+    <div class="container">
 
-      <div id="productsPanel">
-        <h1>Produkty</h1>
-        <h2>Přehled produktů</h2>
-
-        <button onclick="toggleAddForm(true)">Přidat produkt</button>
-
-        <div id="addForm" style="display: none; margin-top: 20px;">
-          <h2>Přidat produkt</h2>
-          <label for="addName">Název:</label>
-          <input id="addName" placeholder="Název produktu" />
-          <label for="addPrice">Cena:</label>
-          <input id="addPrice" placeholder="12345" />
-          
-          <button onclick="addProduct()">Přidat</button>
-          <button onclick="toggleAddForm(false)">Zrušit</button>
-        </div>
-
-        <div id="editForm" style="display: none; margin-top: 20px;">
-          <h2>Upravit produkt</h2>
-          <input type="hidden" id="editId" />
-          <label for="editName">Název:</label>
-          <input type="text" id="editName" placeholder="Název produktu" /><br />
-          <label for="editPrice">Cena:</label>
-          <input type="number" id="editPrice" placeholder="12345" /><br />
-        
-          <button onclick="submitEdit()">Uložit změny</button>
-          <button onclick="cancelEdit()">Zrušit</button>
-        </div>
-
-        <div id="products"></div>
+      <div id="loginPanel" class="card mx-auto p-4 shadow" style="display:none; max-width: 400px;">
+        <h1>Admin Login</h1>
+        <input id="user" class="form-control mb-2" placeholder="Username" />
+        <input id="pass" class="form-control mb-2" type="password" placeholder="Password" />
+        <button onclick="login()" class="btn btn-primary">Login</button>
       </div>
 
-      <div id="ordersPanel">
-        <h2>Orders</h2>
+      <div id="adminPanel" style="display:block;">
+        <div id="productsPanel" class="mb-6">
+          <h1>Produkty</h1>
+          <h2>Přehled produktů</h2>
 
-        <div id="orders"></div>
+          <div class="mb-4">
+            <button onclick="toggleAddForm(true)" class="btn btn-outline-primary">Přidat produkt</button>
+          </div>
+
+          <div id="addForm" class="card p-4 mb-4 shadow-sm" style="display: none; margin-top: 20px;">
+            <h2>Přidat produkt</h2>
+            <div class="mb-2">
+              <label for="addName" class="form-label">Název</label>
+              <input id="addName" class="form-control" placeholder="Název produktu" />
+            </div>
+            <div class="mb-2">
+              <label for="addPrice" class="form-label">Cena</label>
+              <input id="addPrice" class="form-control" placeholder="12345" />
+            </div>
+
+            <button onclick="addProduct()" class="btn btn-primary">Přidat</button>
+            <button onclick="toggleAddForm(false)" class="btn btn-outline-secondary">Zrušit</button>
+          </div>
+
+          <div id="editForm" class="card p-4 mb-4 shadow-sm" style="display: block;">
+            <h2>Upravit produkt</h2>
+            <input type="hidden" id="editId" />
+            <div class="mb-2">
+              <label for="editName" class="form-label">Název</label>
+              <input type="text" id="editName" class="form-control" placeholder="Název produktu"/>
+            </div>
+            <div class="mb-2">
+              <label for="editPrice" class="form-label">Cena</label>
+              <input type="number" id="editPrice" class="form-control" placeholder="12345" />
+            </div>
+          
+            <button onclick="submitEdit()" class="btn btn-primary">Uložit změny</button>
+            <button onclick="cancelEdit()" class="btn btn-outline-secondary">Zrušit</button>
+          </div>
+
+          <div id="products" class="row row-cols-1 g-3"></div>
+        </div>
+
+        <div id="ordersPanel" class="mb-6">
+          <h2>Orders</h2>
+
+          <div id="orders"></div>
+        </div>
       </div>
     </div>
     

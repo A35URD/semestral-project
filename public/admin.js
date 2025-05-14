@@ -23,21 +23,6 @@ async function login() {
   }
 }
 
-async function addProduct() {
-  const name = document.getElementById('addName').value;
-  const price = parseFloat(document.getElementById('addPrice').value);
-
-  const res = await fetch('/api/admin/add-product', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, price })
-  });
-
-  const data = await res.json();
-  alert(data.success ? 'Product added' : 'Failed to add');
-  loadProducts();
-}
-
 async function loadOrders() {
   const res = await fetch('/api/admin/orders');
   const orders = await res.json();
@@ -60,13 +45,38 @@ async function loadProducts() {
   products.forEach(product => {
     const { id, name, price } = product;
     const div = document.createElement('div');
+    div.className="d-flex justify-content-between align-items-center border rounded p-3 bg-white shadow-sm"
     div.innerHTML = `
-      <b>${name}</b> – ${price} Kč
-      <button onclick="editProduct('${id}', '${name}', ${price})">Upravit</button>
-      <button onclick="deleteProduct('${id}')">Smazat</button>
+      <div>
+        <strong>${name}</strong><br />
+      </div>
+      <div class="text-end me-3">
+        ${price} Kč
+      </div>
+      <div>
+        <button onclick="editProduct('${id}', '${name}', ${price})" class="btn btn-sm btn-outline-primary me-2">Upravit</button>
+        <button onclick="deleteProduct('${id}')" class="btn btn-sm btn-outline-danger">Smazat</button>
+      </div>
     `;
     container.appendChild(div);
   });
+}
+
+async function addProduct() {
+  const name = document.getElementById('addName').value;
+  const price = parseFloat(document.getElementById('addPrice').value);
+
+  const res = await fetch('/api/admin/add-product', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, price })
+  });
+
+  const data = await res.json();
+  alert(data.success ? 'Product added' : 'Failed to add');
+
+  toggleAddForm(false);
+  loadProducts();
 }
 
 async function deleteProduct(id) {
