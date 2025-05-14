@@ -11,15 +11,14 @@
     <div class="container">
 
       <div id="loginPanel" class="mx-auto" >
-        <button onclick="logout()" class="btn btn-outline-danger float-end">Odhlásit</button>
+        <button onclick="logout()" class="btn btn-outline-info">Odhlásit</button>
       </div>
 
       <div id="adminPanel" style="display:block;">
         <div id="productsPanel" class="mb-6">
           <h1>Produkty</h1>
-          <h2>Přehled produktů</h2>
 
-          <div id="addForm" class="card p-4 mb-4 shadow" style="display: none; margin-top: 20px;">
+          <div id="addForm" class="card p-4 mb-4 shadow" style="display: none;">
             <h2>Přidat produkt</h2>
             <div class="mb-2">
               <label for="addName" class="form-label">Název</label>
@@ -50,6 +49,7 @@
             <button onclick="cancelEdit()" class="btn btn-outline-secondary">Zrušit</button>
           </div>
 
+          <h2>Přehled produktů</h2>
           <div id="products">
 
               
