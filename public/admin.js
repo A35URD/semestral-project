@@ -122,3 +122,9 @@ async function submitEdit() {
     alert('Chyba při úpravě produktu');
   }
 }
+
+function toggleAddForm(visible){
+  if (visible) document.getElementById('addForm').style.display = 'block';
+  else document.getElementById('addForm').style.display = 'none';
+  
+}
