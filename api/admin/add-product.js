@@ -9,7 +9,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
-        id: name, 
+        name, 
         price 
       })
     });
@@ -21,7 +21,6 @@ export default async function handler(req, res) {
     const result = await response.json();
 
     res.status(200).json({ success: true, id: result.name }); // result.name = generated Firebase key
-    console.log("Added product - id: "+result.name)
 
   } catch (err) {
     console.error('Add product error:', err);

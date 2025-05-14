@@ -61,7 +61,7 @@ async function loadProducts() {
 
     const div = document.createElement('div');
     div.innerHTML = `
-      <b>${name}</b> – ${price} Kč
+      (${id}) <b>${name}</b> – ${price} Kč
       <button onclick="editProduct('${id}', '${name}', ${price})">Upravit</button>
       <button onclick="deleteProduct('${id}')">Smazat</button>
     `;
