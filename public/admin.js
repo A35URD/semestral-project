@@ -27,7 +27,6 @@ async function loadOrders() {
         <div id="orderDetail">
           <div><strong>E-mail: ${order.address}</strong></div>
           <div><strong>Položky:</strong> ${order.items.map(i => i.name).join(', ')}</div>
-        <div>
         <button onclick="" class="btn btn-sm btn-outline-danger">Smazat</button>
     `;
 
