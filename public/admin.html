@@ -9,21 +9,17 @@
 
     <div class="container">
 
-      <div id="loginPanel" class="card mx-auto p-4 shadow" style="display:block; max-width: 400px;">
+      <div id="loginPanel" class="card mx-auto p-4 shadow" style="display:none; max-width: 400px;">
         <h1>Admin Login</h1>
         <input id="user" class="form-control mb-2" placeholder="Username" />
         <input id="pass" class="form-control mb-2" type="password" placeholder="Password" />
         <button onclick="login()" class="btn btn-primary">Login</button>
       </div>
 
-      <div id="adminPanel" style="display:none;">
+      <div id="adminPanel" style="display:block;">
         <div id="productsPanel" class="mb-6">
           <h1>Produkty</h1>
           <h2>Přehled produktů</h2>
-
-          <div class="mb-4">
-            <button onclick="toggleAddForm(true)" class="btn btn-outline-primary">Přidat produkt</button>
-          </div>
 
           <div id="addForm" class="card p-4 mb-4 shadow-sm" style="display: none; margin-top: 20px;">
             <h2>Přidat produkt</h2>
@@ -56,7 +52,30 @@
             <button onclick="cancelEdit()" class="btn btn-outline-secondary">Zrušit</button>
           </div>
 
-          <div id="products" class="row row-cols-1 g-3"></div>
+          <div class="row row-cols-1 g-3">
+            <div id="products" class="col">
+
+              <!--
+              <div class="d-flex justify-content-between align-items-center border rounded p-3 bg-white shadow-sm">
+              <div>
+                <strong>Produkt1</strong>
+              </div>
+              <div class="text-end me-3">
+                1234213 Kč
+              </div>
+              <div>
+                <button class="btn btn-sm btn-outline-primary me-2">Upravit</button>
+                <button class="btn btn-sm btn-outline-danger">Smazat</button>
+              </div>
+              -->
+
+
+            </div>
+          </div>
+
+          <div class="my-4">
+            <button onclick="toggleAddForm(true)" class="btn btn-outline-primary">Přidat produkt</button>
+          </div>
         </div>
 
         <div id="ordersPanel" class="mb-6">
