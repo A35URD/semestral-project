@@ -56,6 +56,7 @@ async function loadProducts() {
   container.innerHTML = '';
   
   products.forEach(product => {
+    console.log(id, name, price)
     const { id, name, price } = product;
     const div = document.createElement('div');
     div.innerHTML = `
@@ -64,7 +65,7 @@ async function loadProducts() {
       <button onclick="deleteProduct('${id}')">Smazat</button>
     `;
     container.appendChild(div);
-  });
+});
 }
 
 async function deleteProduct(id) {
