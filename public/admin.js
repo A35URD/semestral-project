@@ -24,7 +24,7 @@ async function loadOrders() {
     div.className = 'd-flex justify-content-between align-items-center border rounded p-4 mb-1 bg-white shadow-sm';
 
     div.innerHTML = `
-        <div>
+        <div id="orderDetail">
           <div><strong>E-mail: ${order.address}</strong></div>
           <div><strong>Položky:</strong> ${order.items.map(i => i.name).join(', ')}</div>
         <div>
