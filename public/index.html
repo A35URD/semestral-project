@@ -11,33 +11,30 @@
 
   <div class="container py-4">
 
-    <!-- Hlavička s tlačítkem do adminu -->
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h1 class="mb-0">E-shop</h1>
       <a href="admin.html" class="btn btn-outline-secondary">Admin</a>
     </div>
 
-    <!-- Produkty -->
     <div class="mb-5">
-      <h3 class="mb-3">Seznam produktů</h3>
-      <div id="products" class="row row-cols-1 row-cols-md-2 g-4">
-        <!-- Produkty se sem generují dynamicky -->
+      <h2 class="mb-3">Seznam produktů</h2>
+      <div id="products" class="row row-cols-md-3">
       </div>
     </div>
 
-    <!-- Košík -->
+
     <div class="mb-5">
-      <h3 class="mb-3">Košík</h3>
+      <h2 class="mb-3">Košík</h2>
       <div id="cart" class="mb-3">
-        <!-- Obsah košíku -->
+
       </div>
       <button onclick="checkout()" class="btn btn-primary">Objednat</button>
     </div>
 
-    <!-- Formulář s adresou -->
+
     <div id="addressForm" class="card p-3 shadow-sm mb-4" style="display: none;">
-      <h5 class="mb-3">Zadejte adresu pro doručení</h5>
-      <input id="address" class="form-control mb-3" placeholder="Např. Křižíkova 123, Praha" />
+      <h5 class="mb-3">Zadejte Váš e-mail</h5>
+      <input id="address" class="form-control mb-3" placeholder="karel@karel.cz" />
       <button onclick="submitOrder()" class="btn btn-success">Odeslat objednávku</button>
     </div>
 
