@@ -11,7 +11,7 @@ export default async function handler(req, res) {
         const response = await fetch(firebaseUrl, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id, name, price })
+        body: JSON.stringify({ name, price })
         });
 
         if (!response.ok) {
