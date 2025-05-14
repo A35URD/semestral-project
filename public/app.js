@@ -16,7 +16,7 @@ async function loadProducts() {
     card.innerHTML = `
       <div class="card-body d-flex flex-column gap-1 justify-content-between">
         <h3 class="card-title">${p.name}</h3>
-        <p class="badge bg-secondary">${p.price} Kč</p>
+        <p class="card-text">${p.price} Kč</p>
         <button class="btn btn-sm btn-primary" onclick='addToCart(${JSON.stringify(p)})'>Přidat do košíku</button>
       </div>
     `;
@@ -47,7 +47,7 @@ function updateCart() {
     const item = document.createElement('li');
     item.className = 'list-group-item d-flex justify-content-between align-items-center';
     item.innerHTML = `
-      ${p.name} <span class="badge bg-secondary">${p.price} Kč</span>
+      ${p.name} <span>${p.price} Kč</span>
     `;
     list.appendChild(item);
   });
