@@ -21,14 +21,17 @@ async function loadOrders() {
 
   orders.forEach(order => {
     const div = document.createElement('div');
-    div.className = 'card mb-3 shadow-sm';
+    div.className = 'd-flex justify-content-between align-items-center border rounded p-4 mb-1 bg-white shadow-sm';
 
     div.innerHTML = `
-      <div class="card-body">
-        <h3 class="card-title">E-mail: ${order.address}</h3>
-        <p class="card-text mb-0">
+      <div">
+        <strong>E-mail: ${order.address}</strong>
+        <div>
           <strong>Položky:</strong> ${order.items.map(i => i.name).join(', ')}
-        </p>
+        <div>
+        <div>
+          <button onclick="deleteOrder('${id}')" class="btn btn-sm btn-outline-danger">Smazat</button>
+        </div>
       </div>
     `;
 
@@ -49,7 +52,7 @@ async function loadProducts() {
     div.className="d-flex justify-content-between align-items-center border rounded p-4 mb-1 bg-white shadow-sm"
     div.innerHTML = `
       <div>
-        <strong>${name}</strong><br />
+        <strong>${name}</strong>
       </div>
       <div class="text-end me-3">
         ${price} Kč</span>
